@@ -1,0 +1,17 @@
+#main_frame {
+    left: -50px;
+    /*margin: 70px auto 30px;*/
+    width: 610px;
+    height: 610px;
+}
+
+.number_box {
+    font-size: 100px;
+    padding: 1px 0 0 0;
+    margin: auto;
+    text-align: center;
+    display: inline-block;
+    border: solid green 1px;
+    width: 150px;
+    height: 150px;
+}
