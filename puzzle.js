@@ -60,13 +60,13 @@ function swapData( data, a, b ){
 
 function swap_pos( data, pos ) {
   const blank_pos = data.indexOf( '0' );
-  if ( pos == 'right' && [3, 7, 11, 15].indexOf( blank_pos ) == -1 ) {
+  if ( pos == 'left' && [3, 7, 11, 15].indexOf( blank_pos ) == -1 ) {
     return swapData( data, blank_pos, blank_pos + 1 );
-  } else if ( pos == 'down' && [12, 13, 14, 15].indexOf( blank_pos ) == -1 ) {
+  } else if ( pos == 'up' && [12, 13, 14, 15].indexOf( blank_pos ) == -1 ) {
     return swapData( data, blank_pos, blank_pos + 4 );
-  } else if ( pos == 'left' && [0, 4, 8, 12].indexOf( blank_pos ) == -1 ) {
+  } else if ( pos == 'right' && [0, 4, 8, 12].indexOf( blank_pos ) == -1 ) {
     return swapData( data, blank_pos, blank_pos - 1 );
-  } else if ( pos == 'up' && [0, 1, 2, 3].indexOf( blank_pos ) == -1 ) {
+  } else if ( pos == 'down' && [0, 1, 2, 3].indexOf( blank_pos ) == -1 ) {
     return swapData( data, blank_pos, blank_pos - 4 );
   } else {
     return data;
