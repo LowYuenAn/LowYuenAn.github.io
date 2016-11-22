@@ -90,7 +90,7 @@ function display( frame, data ) {
 }
 
 function createPuzzle( frame ) {
-  const random_move = Array.apply( null, Array( 1000 ) )
+  const random_move = Array.apply( null, Array( 1 ) )
     .map( n => Math.round( Math.random() * 3 ) + 37 )
     .forEach( swap );
 }
@@ -101,7 +101,7 @@ function check( data ) {
     .concat( '0' )
     .filter( ( n, i ) => n == data[i] );
   if ( final.length == 16 ) {
-    document.getElementById( 'main_board' ).innerText = "You Have Completed The Puzzle!!!"
+    document.getElementById( 'completed' ).innerText = "You Have Completed The Puzzle!!!"
   } else {
     document.getElementById( 'main_board' ).innerText = ""
 
