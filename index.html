@@ -2,31 +2,52 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="puzzle.css">
-    <meta name="viewport" content="width=deivce-width, initial-scale=1">
-<!--     <script type="text/javascript" src="node_modules/dist/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <link rel="shortcut icon" type="image/png" href="image/title.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Puzzle</title>
 </head>
 <body>
-	<div id="header">
-		<div id="hamburger">&#9776;</div>
-		<header id="header_inside">My Puzzle</header>
-	</div>
-	<section id="section">
-	    <div class="description" id="description">
-	    	<div id="puzzle_des">
-	    		<h3>Rearrange the puzzle into following arrangement.</h3>
-	    	</div>
-		    <div id="answer">
-		    	<img class="answer" src="image/answer.png" alt="Answer" />
-		    </div>
-	    </div>
-		<div class="frame" id="main_frame"></div>
-	    <div id="board">
-	    	<div id="completed"></div>
-	    </div>
-	</section>
-	<!-- <footer id="footer">My Puzzle</footer> -->
+    <div id="header">
+        <div id="hamburger">
+            <div class="menu"></div>
+            <div class="menu"></div>
+            <div class="menu"></div>
+        </div>
+        <header id="header_inside">My Puzzle</header>
+    </div>
+
+    <section id="section">
+        <div class="description" id="description">
+            <div id="puzzle_des">
+                <h3>Rearrange the puzzle into following arrangement.</h3>
+            </div>
+            <div id="answer">
+                <img class="answer" src="image/answer.png" alt="Answer" />
+            </div>
+        </div>
+
+        <div id="frame">
+            <div id="main_frame"></div>
+        </div>
+
+        <div id="board">
+            <div id="completed">Use the arrow buttons or keys to control the block.</div>
+            <div id="btn">
+                <div>
+                    <div class="arrow_btn" id="left_btn"></div>
+                </div>
+                <div>
+                    <div class="arrow_btn" id="top_btn"></div>
+                    <div class="arrow_btn" id="bottom_btn"></div>
+                </div>
+                <div>
+                    <div class="arrow_btn" id="right_btn"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">My Puzzle</footer>
     <script type="text/javascript" src="puzzle.js"></script>
 </body>
 </html>

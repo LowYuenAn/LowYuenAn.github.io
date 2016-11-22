@@ -21,11 +21,14 @@ function addEvent( target, type, func ) {
 
 function keydownPuzzle( data ) {
   return function swaping( e ) {
-    if ( [37, 38, 39, 40].indexOf( e.keyCode ) == -1 ) {
+    let direction = e.keyCode || e; 
+    if ( [37, 38, 39, 40].indexOf( direction ) == -1 ) {
       return;
     }
-    e.preventDefault();
-    swap( e.keyCode )
+    if ( typeof e != 'number' ) {
+      e.preventDefault();
+    }
+    swap( direction )
   }
 }
 
@@ -90,10 +93,19 @@ function display( frame, data ) {
 }
 
 function createPuzzle( frame ) {
-  const random_move = Array.apply( null, Array( 1 ) )
+  const random_move = Array.apply( null, Array( 1000 ) )
     .map( n => Math.round( Math.random() * 3 ) + 37 )
     .forEach( swap );
 }
+
+// complex
+// function createPuzzle( frame ) {
+//   const random_move = Array.apply( null, Array( 1000 ) )
+//     .map( n => Array.apply( null, Array( Math.round( Math.random() * 3 ) ) ) )
+//     .map( ns => ns.map( n => Math.round( Math.random() * 3 ) + 37 ) )
+//     .reduce( ( arr, curr ) => arr.concat( curr ), [] )
+//     .forEach( swap );
+// }
 
 function check( data ) {
   const final = Array.apply( null, Array( 15 ) )
@@ -101,10 +113,7 @@ function check( data ) {
     .concat( '0' )
     .filter( ( n, i ) => n == data[i] );
   if ( final.length == 16 ) {
-    document.getElementById( 'completed' ).innerText = "You Have Completed The Puzzle!!!"
-  } else {
-    document.getElementById( 'main_board' ).innerText = ""
-
+    document.getElementById( 'completed' ).innerText = "Congratulation, You Have Completed The Puzzle!!!"
   }
 
 }
@@ -114,6 +123,11 @@ const data = collectData( frame );
 createPuzzle( frame )
 // frame.focus();
 addEvent( window, 'keydown', keydownPuzzle( data ) );
+addEvent( document.getElementById( 'left_btn' ), 'click', e => keydownPuzzle( data )( 37 ) );
+addEvent( document.getElementById( 'top_btn' ), 'click', e => keydownPuzzle( data )( 38 ) );
+addEvent( document.getElementById( 'bottom_btn' ), 'click', e => keydownPuzzle( data )( 40 ) );
+addEvent( document.getElementById( 'right_btn' ), 'click', e => keydownPuzzle( data )( 39 ) );
+
 // addEvent( window, 'click', alwaysFocus);
 
 // Math.round( Math.random() * 3 )
