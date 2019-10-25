@@ -1,2 +1,0 @@
-# lowyuenan.github.io
-Puzzles
